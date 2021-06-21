@@ -11,8 +11,8 @@ Here is just under an hour of material. If you can spend some time in KSP it wil
 5. [12:46] How Gravity Assists Work: https://www.youtube.com/watch?v=16jr7WWGSxo
 
 ## Other stuff:
-Playlist by a science channel on a bunch of the math: https://www.youtube.com/playlist?list=PLcJ1NYursFxjDgb69EuvgsBPMCdwE4hHR
-Poliastro is a pure Python library for interactive Astrodynamics and Orbital Mechanics https://docs.poliastro.space/en/stable/
-Track Earth satellites given TLE data, using up-to-date 2020 SGP4 routines. https://pypi.org/project/sgp4/
-Skyfield computes positions for the stars, planets, and satellites. Agrees w/USNO within half a milliarcsecond https://rhodesmill.org/skyfield/
-Satellite, Junk, and Flare Tracking, real time all the known satellites orbiting the Earth https://www.satflare.com/home.asp
+- Playlist by a science channel on a bunch of the math: https://www.youtube.com/playlist?list=PLcJ1NYursFxjDgb69EuvgsBPMCdwE4hHR
+- Poliastro is a pure Python library for interactive Astrodynamics and Orbital Mechanics https://docs.poliastro.space/en/stable/
+- Track Earth satellites given TLE data, using up-to-date 2020 SGP4 routines. https://pypi.org/project/sgp4/
+- Skyfield computes positions for the stars, planets, and satellites. Agrees w/USNO within half a milliarcsecond https://rhodesmill.org/skyfield/
+- Satellite, Junk, and Flare Tracking, real time all the known satellites orbiting the Earth https://www.satflare.com/home.asp
