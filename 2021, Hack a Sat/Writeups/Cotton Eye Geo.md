@@ -11,21 +11,24 @@ singern@ubuntu:~/Desktop/HAS-2021/cotton-eye-geo$ ./run.py
 Time: 2021-06-26-23:59:45.000001-UTC
 Altitude: 42164.39157587264
 
-<here we can send a time and we get back and altitude, which allows us to brute force the orbit>
+<here we can send a delta-v vector of 0,0,0 at a time and we get back the Keplerian parameters>
 ```
+### Goal
+We are given our keplerian parameters for any point in time we provide. The goal is to specify a delta-v vector at a point in time in order to put the SV in equitorial orbit with specific constraits like the eccentricity must be <0.001 and semi-major axis must be +/- 10km.
+
 ## Steps to Solve
-1. Calculate current orbit, apoapse/periapse
-2. Determine our transfer window (+/- 10km of target altitude)
-3. Calculate burn to put SV on the correct orbital plane
+1. Brute force the orbital parameters--by checking altitude at time we can find the apoapsis, periapsis, orbital period
+    a. This is done using the formula in our solution finding altitude from true anomaly
+2. Find a point in the orbital period that we can use for our transfer, altitude = 42164 +/-10km, this is our time to execute
+    a. We tested points by brute force and found we could use 2021-06-26-29:23:25.000001-UTC for the transfer time
+    b. Its important to get as close as we can here, but as high in the orbital period so we get leverage on the maneuver
+    c. There are ultimately two options, the point in time where we are 42164km prograde to the apoapsis or 42164km altitude as we move retrograde
+3. We chose the point in prograde and at that time we must rotate the orbit to the left of our reference frame to move the periapsis to the other side of the earth and then reduce the semi-major axis to make it eccentric. You can caulcate these two values if you know the keplerian points that you want at that point, but you can also brute force the values fairly easily as its obviously minor x and y orientation changes given that you are at is roughly equitorial. There is also a point in the orbit where the SV is at the approperiate height, and therefor this can be done in a single burn. Finally, we dont need to do any time averaging because we are able to provide a delta-v vector that gets applied instantly.
 
 ## Our Solution
 ```
 #!/usr/bin/python3
 from pwn import *
-
-x=-0.9091  #1.0302 #4      1
-y=-1.0836       #0.8343 #2      1x=1.0302
-z=0.02   #3.053  #1.071  3.059
 
 def run(day:int, hours:int, mins:int, sec:int):
     io = remote('visual-sun.satellitesabove.me', 5014)
@@ -60,11 +63,10 @@ def run(day:int, hours:int, mins:int, sec:int):
     print(result)
 
     return altitude
-    #42164
 
-    #2021-06-26-19:20:00.000001-UTC
+x=-0.9091
+y=-1.0836
+z=0.02
 
-
-#2021-06-26-23:59:45.000001-UTC
 run(26,23,59,45)
 ```
