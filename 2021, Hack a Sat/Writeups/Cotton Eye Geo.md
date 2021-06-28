@@ -10,7 +10,8 @@ singern@ubuntu:~/Desktop/HAS-2021/cotton-eye-geo$ ./run.py
 [*] Closed connection to visual-sun.satellitesabove.me port 5014
 Time: 2021-06-26-23:59:45.000001-UTC
 Altitude: 42164.39157587264
-b"\n 42173.94944457969 0.0009194705701843296 0.4294181891446367 123.86542988272755 295.3720590693332 75.78183988208784 2021-06-26 23:59:45.000001+00:00\n\nYou got it! Here's your flag:\nflag{sierra347984whiskey2:GC6iAHayTNLVVaFmuZtfi4KvXWSrBePvX9Yv-sl0VY5csbQa3Q4dVz7a_ws7NLuRIGs8I9Z9oP7VHwIPVbGBFwc}\n"
+
+<here we can send a time and we get back and altitude, which allows us to brute force the orbit>
 ```
 ## Steps to Solve
 1. Calculate current orbit, apoapse/periapse
